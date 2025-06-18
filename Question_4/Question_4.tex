@@ -355,6 +355,15 @@ Year & No. of billionaires who inherited their wealth & No. of billionaires who 
 \end{tabular}
 \end{table}
 
+Figure \ref{Fig2} shows us that while there was a decrease in the
+proportion of those who obtained their wealth from non-inheritance over
+1996-2001, a large increase in this proportion occurred over 2001-2014.
+Note also how in each period the proportion of those who made their
+wealth from non-inheritance is greater than half of the population of
+billionaires outside of the US. This contradicts the statement saying
+that outside the US houses billionaires who've mostly sourced their
+wealth from inheritance.
+
 Tables \ref{tab1} and \ref{tab2} show how even though the US has a
 slightly higher proportion over time of those billionaires who had not
 inherited their wealth which had increased over the time periods, those
@@ -365,8 +374,62 @@ A simple calculation shows that the growth rate for those who have
 inherited wealth in the US is 36.2\% for 2001 and 52.1\% over 2014, and
 165.2\% and 103.4\% for those who have not inherited wealth. These same
 rates for those outside of the US are -2.3\% for 2001 and 178.3\%, and
--10.3\% and 467.9\% respectively for those billionaires from outside of
-the US.
+-10.3\% and 467.9\%. What these figures show is that those from outside
+of the US have experienced the largest growth rate in the number of new
+billionaires who have not come from inherited wealth. This contradicts
+the first statement, showing that there may be a stronger
+entrepreneurial spirit displayed by those from outside of the US in more
+recent years, seen with the higher growth rate when compared to that of
+the US over 2001-2014.
+
+\section{Sector analysis}\label{sector-analysis}
+
+This section lays out the analysis of the second statement that most
+new-made millionaires are in software, compared to consumer services
+type industries of the 90s.
+
+Here I created a plot showcasing the top 10 billionaire sectors while
+using number of billionaires in software as a measuring device.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.8\linewidth]{./output/fig3} 
+
+}
+
+\caption{Column plots showing the top 10 billionaire sectors over the 3 periods, using the number of software billionaires as a benchmark in each \label{Fig3}}\label{fig:unnamed-chunk-5}
+\end{figure}
+
+Figure \ref{Fig3} shows that the second statement is also not valid.
+Clearly, the number of billonaires in the software sector are lagging
+behind many sectors such as real estate, retail, construction, media,
+banking, pharmaceuticals and hedge funds.\\
+To evaluate the second part of this statement we include GDP per country
+in the analysis. This entails using a simple linear regression to model
+if coming from a richer country increases or decreases the probability
+of the billionaire being part of the software sector.
+
+\begin{table}
+\centering
+\caption{\label{tab:unnamed-chunk-6}Table showing results of regression of log of GDP on the probability of being in the software sector \label{tab3}}
+\centering
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+Variable & Coefficient & Std. Error & Statistic & p-value\\
+\hline
+(Intercept) & -7.223 & 4.763 & -1.516 & 0.130\\
+\hline
+ln\_gdp & 0.006 & 0.003 & 1.909 & 0.057\\
+\hline
+year & 0.004 & 0.002 & 1.481 & 0.139\\
+\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab3} shows also contradicts the statement made. It shows
+that there is a very small and positive insignificant linear
+relationship between GDP and the probability of a billionaire being in
+the software sector, after including for time controls.
 
 Fama \& French (\citeproc{ref-fama1997}{1997})
 

@@ -200,8 +200,34 @@ A simple calculation shows that the growth rate for those who have inherited wea
 
 # Sector analysis
 
-This section lays out some of the 
+This section lays out the analysis of the second statement that most new-made millionaires are in software, compared to consumer services type industries of the 90s.  
 
+Here I created a plot showcasing the top 10 billionaire sectors while using number of billionaires in software as a measuring device. 
+
+```{r}
+fig3 <- plot_sectors(billionaires)
+
+ggsave("./output/fig3.pdf", fig3, width = 12, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Column plots showing the top 10 billionaire sectors over the 3 periods, using the number of software billionaires as a benchmark in each \\label{Fig3}"}
+knitr::include_graphics("./output/fig3.pdf")
+```
+
+
+Figure \ref{Fig3} shows that the second statement is also not valid. Clearly, the number of billonaires in the software sector are lagging behind many sectors such as real estate, retail, construction, media, banking, pharmaceuticals and hedge funds.  
+To evaluate the second part of this statement we include GDP per country in the analysis. This entails using a simple linear regression to model if coming from a richer country increases or decreases the probability of the billionaire being part of the software sector.
+
+```{r}
+linear_reg_software_gdp(billionaires, caption = "Table showing results of regression of log of GDP on the probability of being in the software sector \\label{tab3}")
+```
+
+Table \ref{tab3} also shows contradictory information to the second statement made. It shows that there is a very small and positive insignificant linear relationship between GDP and the probability of a billionaire being in the software sector, after including for time controls. 
+
+
+# Conclusion
+
+Through the various plots and tables provided, I have shown evidence that both claims made are unfounded. 
 
 @fama1997
 
