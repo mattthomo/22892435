@@ -1,6 +1,6 @@
 # create a simple table to show how the number of inherited has increased in the US
 
-simple_inheritance_table <- function(df, caption){
+simple_inheritance_table <- function(df, caption, format){
 
     # need Kable for the table
 
@@ -14,7 +14,7 @@ simple_inheritance_table <- function(df, caption){
                "No. of people non-inherited" = "n_not_inherited") # cleaner column names
 
     printed_table <- table_df %>%
-        kable(format = "latex",
+        kable(format = format,
               col.names = c("Year", "No. of billionaires who inherited their wealth", "No. of billionaires who have not inherited their wealth"),
               align = c('c', 'c', 'c'),
               caption = caption) %>%

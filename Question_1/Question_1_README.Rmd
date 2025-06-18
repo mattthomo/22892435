@@ -149,18 +149,10 @@ We can now use this data to calculate the Spearman rank correlations
 <!-- Make title of bibliography here: -->
 <!-- \newpage -->
 
-\newpage
+<!-- \newpage -->
 
-# References {-}
+<!-- # References {-} -->
 
-<div id="refs"></div>
+<!-- <div id="refs"></div> -->
 
-
-# Appendix {-}
-
-## Appendix A {-}
-
-Some appendix information here
-
-## Appendix B {-}
 

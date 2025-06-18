@@ -4,7 +4,7 @@
 # The descriptions below should be self-explanatory
 
 title: "Data Science Exam:"
-#subtitle: "This will appear as Right Header"
+subtitle: "Matthew Thompson (22892435)"
 
 documentclass: "elsarticle"
 
@@ -126,45 +126,181 @@ list.files('code/', full.names = T, recursive = T) %>%
 ```
 
 
-# Question 1
+# Question 1: Baby names
 
 ## Source data and load necessary packages
 
-The following code details how I sourced my data for question 1
+The following code details how I sourced my data for Question 1.
 
 ```{r echo=TRUE}
-
 Baby_Names <- read_rds("./data/US_Baby_names/Baby_Names_By_US_State.rds")
 Top100Billboard <- read_rds("./data/US_Baby_names/charts.rds")
 HBO_titles <- read_rds("./data/US_Baby_names/HBO_titles.rds")
 HBO_credits <- read_rds("./data/US_Baby_names/HBO_credits.rds")
 ```
 
+## Short description of method
+
+In Question 1 I aimed to answer the question of how baby names persisted over time, amongst other things. The following plots created help to explain my thought process in answering such a question.
+
 ## Plot 1
 
 
-# Question 2
+# Question 2: Coldplay vs Metallica
 
-## Source data and functions
+## Source data and load necessary packages 
 
+The following code details how I sourced my data for Question 2.
+
+
+```{r Source data and packages Q2, echo=TRUE}
+# load packages
+pacman::p_load(brms)
+
+# source data
+coldplay <- read_csv("./data/Coldplay_vs_Metallica/Coldplay.csv")
+metallica <- read_csv("./data/Coldplay_vs_Metallica/metallica.csv")
+spotify <- read_rds("./data/Coldplay_vs_Metallica/Broader_Spotify_Info.rds")
+billboard_100 <- read_rds("./data/Coldplay_vs_Metallica/charts.rds")
+```
+
+
+## Short description of method
+
+In this question I ventured to come up with an analysis on the trends over time of the well-known bands Coldplay and Metallica. A comparative analysis of advanced scatter plots was used to compare their albums over time around themes such as song duration (excluding live recordings), and danceability (how suited a song is for dancing) of songs recorded during live and non-live (studio, demo, remastered etc.) performances. 
+
+## Plot 1: Song duration for Metallica
+
+This plot showed how the average song duration for Metallica changed over the band's career thus far. The average, longest and shortest song durations were also included in the plot.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Metallica song durations over time \\label{Fig1}"}
+knitr::include_graphics("./Question_2/output/fig1.png")
+```
+
+## Plot 2: Song duration for Coldplay
+
+The next plot showed the same information but for Coldplay this time. We note here that Coldplay on average had shorter track durations than Metallica.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Coldplay song durations over time \\label{Fig2}"}
+knitr::include_graphics("./Question_2/output/fig2.png")
+```
+
+## Plot 3:  Danceability of Coldplay live vs non-live
+
+This next plot worked to compare how Coldplay get their fans moving in both the live, and studio and other non-live performances.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Coldplay danceability difference between different recording types \\label{Fig3}"}
+knitr::include_graphics("./Question_2/output/fig3.png")
+```
+
+## Plot 4: Danceability of Metallica live vs non-live
+
+This plot performed the same analysis as the previous one, except now for Metallica. We find that on average for both bands, the non-live performances had higher danceability scores than the live performances. This contradicts literature and my thinking that live performances are rife for more vibrant music.
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Metallica danceability difference between different recording types  \\label{Fig4}"}
 knitr::include_graphics("./Question_2/output/fig4.png")
 ```
 
+What was also noted was that, on average, Coldplay produce more danceable music than Metallica.
+
+# Question 3: Netflix
+
+## Source data and load necessary packages
+
+Herein lies the code for sourcing the data for this question.
+
+```{r Source data Q3, echo=TRUE}
+Titles <- read_rds("./data/netflix/titles.rds")
+Credits <- read_rds("./data/netflix/credits.rds")
+Movie_Info <- read_csv("./data/netflix/netflix_movies.csv")
+```
 
 
-# Question 3
+## Short description of method
 
-## Source data and functions
+Question 3 saw us investigate what genres of movie/television are popular in different regions of the world. It included analyses of the most highly-rated genres across all countries, as well as a look at which countries produce the most movies/television and who produces the most highly-rated media.
 
-## Results
+## Plot 1: Genres and IMDB ratings
 
-# Question 4
+This plot created density ridges which detailed the spread of IMDB ratings across the various genres of movies and television, averaged across all countries available in the data.
 
-## Source data and functions
+```{r, out.width="80%", fig.align="center", fig.cap="Density ridges of Netflix genres and their IMDB ratings \\label{Fig1}"}
+knitr::include_graphics("./Question_3/output/fig1.png")
+```
 
-## Results
+## Plot 2: Top 10 movie producing countries
+
+The second plot from Question 3 endeavoured to find the top 10 movie producing countries in terms of the frequency of movies produced.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Top 10 Movie Producing Countries \\label{Fig2}"}
+knitr::include_graphics("./Question_3/output/fig2.png")
+```
+
+## Plot 3: Movie quality vs quantity for the top 10 movie producing countries
+
+This plot showcased not only the quantity produced by the top 10 movie makers, but also the subjective quality (according to their average IMDB ratings). We see that even though the United States produces the most movies, South Korea arguably produces the best of them.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Movie quantity vs quality by country for top 10 producers \\label{Fig3}"}
+knitr::include_graphics("./Question_3/output/fig3.png")
+```
+
+# Question 4: Billionaires
+
+## Source data and packages
+
+Here is the code with which I sourced the data and functions for Question 4. (Note here: I was unable to get my `bespoke_function` to work. I have included the error I ran into in its script file)
+
+```{r Q4 data and packages, echo=TRUE}
+billionaires <- read_csv("./data/Billions/billionaires.csv")
+```
+
+## Short description of method
+
+In Question 4, I evaluated the validity of two statements made. The claims read as follows:  
+1. There is a difference in the make-up of the sources of wealth for billionaires between those from the United States (US) and those from outside of the US. More specifically, those from outside of the US have a higher proportion of billionaires who made their wealth from inheritance than those who did not.  
+2. Most new self-made millionaires are in the software sector, which differs from what is was in the 90s where it was mostly consumer sectors. Moreover, richer countries generally provide more innovation in consumer services, hence less billionaires in the software sector.
+
+## Plot 1: Billionaire inheritance in the US
+
+This pie chart showed how proportions of those billionaires who made their wealth through inheritance changed over time in the US.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Pie chart showing proportions of US billionaires that had inherited vs those that did not inherit their wealth \\label{Fig1}"}
+knitr::include_graphics("./Question_4/output/fig1.png")
+```
+
+## Table 1: US inheritance statistics
+
+This table accompanied the above plot to help provide some analysis on the US billionaire sources of wealth make-up.
+
+```{r Q4 Table 1: US inheritance table}
+US_billion <- US_billion_extract("United States")
+US_inherited_prop <- inherited_proportion(US_billion)
+
+# I include the above code in order to generate the table
+simple_inheritance_table(US_inherited_prop, caption = "Table showing the US inheritance statistics \\label{tab1}", format = "simple")
+```
+
+## Plot 2: Outside US billionaire inheritance
+
+This chart asked the same question as the first plot, but now addressed to those billionaires from outside of the US.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Pie chart showing proportions of those outside of the US billionaires that had inherited vs those that did not inherit their wealth \\label{Fig2}"}
+knitr::include_graphics("./Question_4/output/fig2.png")
+```
+
+## Table 2: Outside US billionaire inheritance statistics
+
+This table laid out additional statistics which helped to complete the analysis comparing billionaires from the US and those from elsewhere.
+
+```{r Outside US inheritance table}
+outsideUS_billion <- outsideUS_billion_extract()
+outsideUS_inherited_prop <- inherited_proportion(outsideUS_billion)
+
+# the above code is needed to generate this table
+simple_inheritance_table(outsideUS_inherited_prop, caption = "Table showing Outside of the US inheritance statistics \\label{tab2}", format = "simple")
+```
+
+All these plots and figures illustrated that 
 
 # Question 5
 

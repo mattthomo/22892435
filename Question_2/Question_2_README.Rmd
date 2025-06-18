@@ -65,6 +65,7 @@ billboard_100 <- read_rds("./data/Coldplay_vs_Metallica/charts.rds")
 
 # Introduction \label{Introduction}
 
+In this question I ventured to come up with an analysis on the trends over time of the well-known bands Coldplay and Metallica. A comparative analysis of advanced scatter plots was used to compare their albums over time around themes such as song duration (excluding live recordings), and danceability (how suited a song is for dancing) of songs recorded during live and non-live (studio, demo, remastered etc.) performances. 
 
 # Clean and remove live songs
 
@@ -108,6 +109,7 @@ Below we plot the average song duration for both Metallica and Coldplay over tim
 fig1 <- plot_song_length_metallica()
 
 ggsave("./output/fig1.pdf", fig1, width = 10, height = 6)
+ggsave("./Question_2/output/fig1.png", fig1, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Metallica song durations over time \\label{Fig1}"}
@@ -120,6 +122,7 @@ Now want to perform the same for Coldplay
 fig2 <- plot_song_length_coldplay()
 
 ggsave("./output/fig2.pdf", fig2, width = 10, height = 6)
+ggsave("./Question_2/output/fig2.png", fig2, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Coldplay song durations over time \\label{Fig2}"}
@@ -144,6 +147,7 @@ metallica <- live_or_not(metallica)
 fig3 <- plot_danceability(coldplay)
 
 ggsave("./output/fig3.pdf", fig3, width = 10, height = 6)
+ggsave("./Question_2/output/fig3.png", fig3, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Coldplay danceability difference between different recording types \\label{Fig3}"}
@@ -156,7 +160,7 @@ When looking at Coldplay in Figure \ref{Fig3}, we see that their studio and othe
 fig4 <- plot_danceability(metallica)
 
 ggsave("./output/fig4.pdf", fig4, width = 10, height = 6)
-ggsave("./output/fig4.png", fig4, width = 10, height = 6)
+ggsave("./Question_2/output/fig4.png", fig4, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Metallica danceability difference between different recording types  \\label{Fig4}"}
@@ -165,6 +169,9 @@ knitr::include_graphics("./output/fig4.pdf")
 
 We see that in the case of Metallica, live shows are similarly less suited for dancing than their studio recordings.  
 This contradicts literature which states that live performances often bring out more energy and emotion, seen through better danceability scores [@swarbrick2019].
+
+# Conclusion
+
 
 
 
