@@ -1,7 +1,9 @@
 # this function creates a plot visualising the relationship between exercise and sleep on stress respectively
 
 plot_stress_exercise_sleep <- function(df){
-# Set factor levels in logical order
+
+# must first set factor levels and put in correct order
+
 df <- df %>%
     rename("Exercise" = "Physical Activity Level",
            "Sleep" = "Sleep Quality",
@@ -12,9 +14,10 @@ df <- df %>%
         Sleep = factor(Sleep,
                        levels = c("Poor", "Fair", "Good", "Excellent")))
 
-# Create heatmap with proper ordering
+# create heatmap
 g <- ggplot(df, aes(x = Exercise, y = Sleep, fill = Stress)) +
-    geom_tile(color = "white", linewidth = 0.5) +
+    geom_tile(color = "white",
+              linewidth = 0.5) +
    # geom_text(aes(label = Stress), color = "black", size = 4) +
     scale_fill_gradient2(
         low = "darkgreen",

@@ -1,10 +1,6 @@
 Data Science Exam:
 ================
 
-<!-- First: Set your default preferences for chunk options: -->
-
-<!-- If you want a chunk's code to be printed, set echo = TRUE. message = FALSE stops R printing ugly package loading details in your final paper too. I also suggest setting warning = FALSE and checking for warnings in R, else you might find ugly warnings in your paper. -->
-
 <!-- ############################## -->
 
 <!-- # Start Writing here: -->
@@ -23,9 +19,34 @@ saved in the respective code folders in each question, as well as having
 duplicates saved in the code folder of the root directory (i.e. for the
 main project).
 
+# Source functions
+
+The following code sources all of the functions used in the paper. I
+have made copies from all of my individual code folders inside of each
+of my questions and pasted it into the code folder in my root so as to
+make it easier to call from this README file.
+
+``` r
+list.files('code/', full.names = T, recursive = T) %>%
+    .[grepl('.R', .)] %>% 
+    as.list() %>% 
+    walk(~source(.))
+```
+
 # Question 1
 
-## Source data and functions
+## Source data and load necessary packages
+
+The following code details how I sourced my data for question 1
+
+``` r
+Baby_Names <- read_rds("./data/US_Baby_names/Baby_Names_By_US_State.rds")
+Top100Billboard <- read_rds("./data/US_Baby_names/charts.rds")
+HBO_titles <- read_rds("./data/US_Baby_names/HBO_titles.rds")
+HBO_credits <- read_rds("./data/US_Baby_names/HBO_credits.rds")
+```
+
+## Plot 1
 
 # Question 2
 
@@ -62,11 +83,10 @@ recording types
 
 <div class="figure" style="text-align: center">
 
-<img src="README_files/figure-gfm/unnamed-chunk-2-1.png" alt="Pie chart showing proportions of US billionaires that had inherited vs those that did not inherit their wealth \label{Fig1}" width="80%" />
+<img src="README_files/figure-gfm/unnamed-chunk-3-1.png" alt="Heatmap showing the relationship between sleep and exercise on stress" width="80%" />
 <p class="caption">
 
-Pie chart showing proportions of US billionaires that had inherited vs
-those that did not inherit their wealth
+Heatmap showing the relationship between sleep and exercise on stress
 </p>
 
 </div>
@@ -75,16 +95,4 @@ those that did not inherit their wealth
 
 <!-- \newpage -->
 
-# References
-
-<div id="refs">
-
-</div>
-
-# Appendix
-
-## Appendix A
-
-Some appendix information here
-
-## Appendix B
+<!-- <div id="refs"></div> -->

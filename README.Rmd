@@ -96,24 +96,13 @@ output:
 #   Abstract to be written here. The abstract should not be too long and should provide the reader with a good understanding what you are writing about. Academic papers are not like novels where you keep the reader in suspense. To be effective in getting others to read your paper, be as open and concise about your findings here as possible. Ideally, upon reading your abstract, the reader should feel he / she must read your paper in entirety.
 ---
 
-<!-- First: Set your default preferences for chunk options: -->
-
-<!-- If you want a chunk's code to be printed, set echo = TRUE. message = FALSE stops R printing ugly package loading details in your final paper too. I also suggest setting warning = FALSE and checking for warnings in R, else you might find ugly warnings in your paper. -->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
-# Note: Include = FALSE implies the code is executed, but not printed in your pdf.
-# warning and message = FALSE implies ugly messages and warnings are removed from your pdf.
-# These should be picked up when you execute the command chunks (code sections below) in your rmd, not printed in your paper!
 
-# Lets load in example data, and see how this can be stored and later called from your 'data' folder.
+
 if(!require("tidyverse")) install.packages("tidyverse")
 library(tidyverse)
-
-
-# Notice that as you are working in a .Rproj file (I am assuming you are) - the relative paths of your directories start at your specified root.
-# This means that when working in a .Rproj file, you never need to use getwd() - it is assumed as your base root automatically.
-
 ```
 
 
@@ -125,11 +114,33 @@ library(tidyverse)
 
 This README file sets out the main outputs (with some descriptions) of my answers to the questions. I lay out each question in the same way, starting with pulling the data into this file for the respective questions. Thereafter, I reproduce my plots and tables created for each question with a short description thereof in relation to the question. All functions that are responsible for the data wrangling and plots are saved in the respective code folders in each question, as well as having duplicates saved in the code folder of the root directory (i.e. for the main project).
 
+# Source functions
+
+The following code sources all of the functions used in the paper. I have made copies from all of my individual code folders inside of each of my questions and pasted it into the code folder in my root so as to make it easier to call from this README file.
+
+```{r Source all functions, echo=TRUE}
+list.files('code/', full.names = T, recursive = T) %>%
+    .[grepl('.R', .)] %>% 
+    as.list() %>% 
+    walk(~source(.))
+```
+
+
 # Question 1
 
-## Source data and functions
+## Source data and load necessary packages
 
+The following code details how I sourced my data for question 1
 
+```{r echo=TRUE}
+
+Baby_Names <- read_rds("./data/US_Baby_names/Baby_Names_By_US_State.rds")
+Top100Billboard <- read_rds("./data/US_Baby_names/charts.rds")
+HBO_titles <- read_rds("./data/US_Baby_names/HBO_titles.rds")
+HBO_credits <- read_rds("./data/US_Baby_names/HBO_credits.rds")
+```
+
+## Plot 1
 
 
 # Question 2
@@ -185,18 +196,9 @@ plot_stress_exercise_sleep(Health)
 <!-- Make title of bibliography here: -->
 <!-- \newpage -->
 
-\newpage
-
-# References {-}
-
-<div id="refs"></div>
 
 
-# Appendix {-}
 
-## Appendix A {-}
+<!-- <div id="refs"></div> -->
 
-Some appendix information here
-
-## Appendix B {-}
 

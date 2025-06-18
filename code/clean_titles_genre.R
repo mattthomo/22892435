@@ -18,6 +18,8 @@ clean_titles_genre <- function(Titles_clean){
                                         genres_clean == "Animation" ~ "Anime Features",
                                         genres_clean == "Sport" ~ "Sports Movies",
                                         genres_clean == "Scifi" ~ "Sci-Fi & Fantasy",
-                                        TRUE ~ genres_clean))
+                                        TRUE ~ genres_clean)) %>%
+        filter(genres_clean != "")
+
     Titles_clean1
 }
