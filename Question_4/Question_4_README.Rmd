@@ -210,6 +210,7 @@ Here I created a plot showcasing the top 10 billionaire sectors while using numb
 fig3 <- plot_sectors(billionaires)
 
 ggsave("./output/fig3.pdf", fig3, width = 12, height = 6)
+ggsave("./Question_4/output/fig3.png", fig3, width = 12, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Column plots showing the top 10 billionaire sectors over the 3 periods, using the number of software billionaires as a benchmark in each \\label{Fig3}"}
@@ -221,7 +222,7 @@ Figure \ref{Fig3} shows that the second statement is also not valid. Clearly, th
 To evaluate the second part of this statement we include GDP per country in the analysis. This entails using a simple linear regression to model if coming from a richer country increases or decreases the probability of the billionaire being part of the software sector.
 
 ```{r}
-linear_reg_software_gdp(billionaires, caption = "Table showing results of regression of log of GDP on the probability of being in the software sector \\label{tab3}")
+linear_reg_software_gdp(billionaires, caption = "Table showing results of regression of log of GDP on the probability of being in the software sector \\label{tab3}", format = "latex")
 ```
 
 Table \ref{tab3} also shows contradictory information to the second statement made. It shows that there is a very small and positive insignificant linear relationship between GDP and the probability of a billionaire being in the software sector, after including for time controls. 
@@ -231,24 +232,15 @@ Table \ref{tab3} also shows contradictory information to the second statement ma
 
 Through the various plots and tables provided, I have shown evidence that both claims made are unfounded. 
 
-@fama1997
+
 
 
 <!-- Make title of bibliography here: -->
 <!-- \newpage -->
 
-\newpage
-
-# References {-}
-
-<div id="refs"></div>
 
 
-# Appendix {-}
+<!-- <div id="refs"></div> -->
 
-## Appendix A {-}
 
-Some appendix information here
-
-## Appendix B {-}
 

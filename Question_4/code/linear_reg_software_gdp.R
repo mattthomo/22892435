@@ -1,6 +1,6 @@
 # this function performs a linear regression to assess whether GDP affects the probability of a billionaire being in the software sector
 
-linear_reg_software_gdp <- function(df, caption){
+linear_reg_software_gdp <- function(df, caption, format){
 
     # first want to create binary variable for if the observation is in the software sector or not and want to log GDO
     reg_df <- df %>%
@@ -14,7 +14,7 @@ linear_reg_software_gdp <- function(df, caption){
 
     g <- model %>%
         broom::tidy() %>%
-        kable(format = "latex",
+        kable(format = format,
               digits = 3,
               col.names = c("Variable", "Coefficient", "Std. Error", "Statistic", "p-value"),
               caption = caption) %>%

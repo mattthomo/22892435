@@ -140,7 +140,6 @@ In this question, I aim to provide a few insights into different determinants of
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Heatmap showing the relationship between sleep and exercise on stress \\label{fig1}"}
 # start with creating a plot which captures the relationship which exercise and sleep have on stress
-
 plot_stress_exercise_sleep(Health)
 ```
 

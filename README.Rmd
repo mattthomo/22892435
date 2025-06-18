@@ -300,34 +300,64 @@ outsideUS_inherited_prop <- inherited_proportion(outsideUS_billion)
 simple_inheritance_table(outsideUS_inherited_prop, caption = "Table showing Outside of the US inheritance statistics \\label{tab2}", format = "simple")
 ```
 
-All these plots and figures illustrated that 
+All these plots and figures illustrated that the first claim made was found to be invalid. Inline calculations also showed that the growth rate of those billionaires from outside of the US who had made their wealth from sources other than inheritance was much higher in recent years than that of the US billionaires in the same scenario.
+
+# Plot 3: Sector analysis
+
+This plot provided a sectoral analysis which aimed to address the second claim made in the question.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Column plots showing the top 10 billionaire sectors over the 3 periods, using the number of software billionaires as a benchmark in each \\label{Fig3}"}
+knitr::include_graphics("./Question_4/output/fig3.png")
+```
+
+Looking at this column plot we can see that the software sector lags behind other sectors in recent times in terms of the number of billionaires in this industry.
+
+# Table 3: Sector analysis and GDP
+
+The below table also strengthened the argument that there was not a strong claim to be made that software billionaires make up a large portion of the new billionaires.
+
+```{r Q4 Table 3: Software and GDP}
+linear_reg_software_gdp(billionaires, caption = "Table showing results of regression of log of GDP on the probability of being in the software sector \\label{tab3}", format = "simple")
+```
+
 
 # Question 5
 
 ## Source data and functions
 
 ```{r Q5 data and functions}
-
 # read in data
-
 Health <- "./data/Health/HealthCare.csv" %>% 
     read_csv()
-
-# call all functions saved in code folder
-
-list.files('code/', full.names = T, recursive = T) %>%
-    .[grepl('.R', .)] %>% 
-    as.list() %>% 
-    walk(~source(.))
 ```
 
+## Short description of method
 
-## Results
+In this question I attempted to provide insights into the important relationship which variables such as sleep and exercise had on measures of health, such as stress levels and weight changes. Through various plots I was able to come up with the following analyses.
+
+# Plot 1: Sleep vs exercise as a determinant of stress
+
+This heatmap showed that sleep is arguably more important than exercise when it comes to stress levels. When sleep is poor, regardless of exercise level, then stress is generally higher. The same was not able to be said for when activity levels are low.
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Heatmap showing the relationship between sleep and exercise on stress"}
 plot_stress_exercise_sleep(Health)
 ```
 
+# Plot 2: Sleep and weight fluctuations
+
+This boxplot set out the changes in weight against changes in sleep quality. It shows once again that sleep is very important in helping to stabilise weight fluctuations.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Boxplot showing the relationship between sleep quality and weight change \\label{fig2}"}
+plot_weight_sleep(Health)
+```
+
+# Plot 3: Exercise and calorie balance
+
+When looking at activity levels and their potential relationship with the calorie balance (i.e. was the calories consumed for the day above or below the recommended amount), we see that increased activity can lead to an increase in the surplus of calories consumed. This shows that while exercise is good, diet is also important and should be considered carefully when maintaining a very active lifestyle as it requires more fuel for the body.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Bubble plot showing the relationship between activity levels and calorie balance \\label{fig3}"}
+plot_calorie_exercise(Health)
+```
 
 <!-- Make title of bibliography here: -->
 <!-- \newpage -->

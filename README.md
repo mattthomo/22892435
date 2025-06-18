@@ -302,20 +302,108 @@ analysis comparing billionaires from the US and those from elsewhere.
 
 Table showing Outside of the US inheritance statistics
 
-All these plots and figures illustrated that
+All these plots and figures illustrated that the first claim made was
+found to be invalid. Inline calculations also showed that the growth
+rate of those billionaires from outside of the US who had made their
+wealth from sources other than inheritance was much higher in recent
+years than that of the US billionaires in the same scenario.
+
+# Plot 3: Sector analysis
+
+This plot provided a sectoral analysis which aimed to address the second
+claim made in the question.
+
+<div class="figure" style="text-align: center">
+
+<img src="./Question_4/output/fig3.png" alt="Column plots showing the top 10 billionaire sectors over the 3 periods, using the number of software billionaires as a benchmark in each \label{Fig3}" width="80%" />
+<p class="caption">
+
+Column plots showing the top 10 billionaire sectors over the 3 periods,
+using the number of software billionaires as a benchmark in each
+</p>
+
+</div>
+
+Looking at this column plot we can see that the software sector lags
+behind other sectors in recent times in terms of the number of
+billionaires in this industry.
+
+# Table 3: Sector analysis and GDP
+
+The below table also strengthened the argument that there was not a
+strong claim to be made that software billionaires make up a large
+portion of the new billionaires.
+
+| Variable    | Coefficient | Std. Error | Statistic | p-value |
+|:------------|------------:|-----------:|----------:|--------:|
+| (Intercept) |      -7.223 |      4.763 |    -1.516 |   0.130 |
+| ln_gdp      |       0.006 |      0.003 |     1.909 |   0.057 |
+| year        |       0.004 |      0.002 |     1.481 |   0.139 |
+
+Table showing results of regression of log of GDP on the probability of
+being in the software sector
 
 # Question 5
 
 ## Source data and functions
 
-## Results
+## Short description of method
+
+In this question I attempted to provide insights into the important
+relationship which variables such as sleep and exercise had on measures
+of health, such as stress levels and weight changes. Through various
+plots I was able to come up with the following analyses.
+
+# Plot 1: Sleep vs exercise as a determinant of stress
+
+This heatmap showed that sleep is arguably more important than exercise
+when it comes to stress levels. When sleep is poor, regardless of
+exercise level, then stress is generally higher. The same was not able
+to be said for when activity levels are low.
 
 <div class="figure" style="text-align: center">
 
-<img src="README_files/figure-gfm/unnamed-chunk-11-1.png" alt="Heatmap showing the relationship between sleep and exercise on stress" width="80%" />
+<img src="README_files/figure-gfm/unnamed-chunk-12-1.png" alt="Heatmap showing the relationship between sleep and exercise on stress" width="80%" />
 <p class="caption">
 
 Heatmap showing the relationship between sleep and exercise on stress
+</p>
+
+</div>
+
+# Plot 2: Sleep and weight fluctuations
+
+This boxplot set out the changes in weight against changes in sleep
+quality. It shows once again that sleep is very important in helping to
+stabilise weight fluctuations.
+
+<div class="figure" style="text-align: center">
+
+<img src="README_files/figure-gfm/unnamed-chunk-13-1.png" alt="Boxplot showing the relationship between sleep quality and weight change \label{fig2}" width="80%" />
+<p class="caption">
+
+Boxplot showing the relationship between sleep quality and weight change
+</p>
+
+</div>
+
+# Plot 3: Exercise and calorie balance
+
+When looking at activity levels and their potential relationship with
+the calorie balance (i.e. was the calories consumed for the day above or
+below the recommended amount), we see that increased activity can lead
+to an increase in the surplus of calories consumed. This shows that
+while exercise is good, diet is also important and should be considered
+carefully when maintaining a very active lifestyle as it requires more
+fuel for the body.
+
+<div class="figure" style="text-align: center">
+
+<img src="README_files/figure-gfm/unnamed-chunk-14-1.png" alt="Bubble plot showing the relationship between activity levels and calorie balance \label{fig3}" width="80%" />
+<p class="caption">
+
+Bubble plot showing the relationship between activity levels and calorie
+balance
 </p>
 
 </div>
