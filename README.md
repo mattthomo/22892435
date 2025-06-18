@@ -29,8 +29,7 @@ main project).
 
 <div class="figure" style="text-align: center">
 
-<embed src="./Question_2/output/fig4.pdf" title="Plot showing Metallica danceability difference between different recording types  \label{Fig4}" width="80%" type="application/pdf" />
-
+<img src="./Question_2/output/fig4.png" alt="Plot showing Metallica danceability difference between different recording types  \label{Fig4}" width="80%" />
 <p class="caption">
 
 Plot showing Metallica danceability difference between different
