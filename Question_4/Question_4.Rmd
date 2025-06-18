@@ -109,12 +109,13 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width 
 if(!require("tidyverse")) install.packages("tidyverse")
 library(tidyverse)
 
-billionaires <- read_csv("./Question_4/data/Billions/billionaires.csv")
 
-# Notice that as you are working in a .Rproj file (I am assuming you are) - the relative paths of your directories start at your specified root.
-# This means that when working in a .Rproj file, you never need to use getwd() - it is assumed as your base root automatically.
-write_rds(Example_data, path = "data/Example_data.rds")
+billionaires <- read_csv("./data/Billions/billionaires.csv")
 
+list.files('code/', full.names = T, recursive = T) %>%
+    .[grepl('.R', .)] %>% 
+    as.list() %>% 
+    walk(~source(.))
 ```
 
 
@@ -125,8 +126,84 @@ write_rds(Example_data, path = "data/Example_data.rds")
 # Introduction \label{Introduction}
 
 
+To tackle this problem, we investigate a few relationships found in the data. The first one we'd like to examine is the claim that the US has more new billionaires who came from entrepreneurial success vs in other developed and emerging economies where there tends to be more inherited wealth.
 
 
+# Entrepreneurial spirit in US vs Others
+
+We start by examining the United States billionaire landscape on its own, checking to see how many of the billionaires came from entrepreneurship and how many came from inherited wealth.  
+First want to extract US billionaires only.
+
+```{r Only US}
+US_billion <- US_billion_extract("United States")
+```
+
+After that, want to compare their sources of wealth and how it changed over the 3 time periods. For each period, want to calculate the proportion of wealth that was inherited and that which was not inherited.
+
+```{r US source of wealth}
+US_inherited_prop <- inherited_proportion(US_billion)
+```
+We use a simple pie chart to display the change in proportion of those who inherited wealth over the 3 time periods.
+
+```{r}
+fig1 <- plot_pie_inherited(US_inherited_prop)
+
+ggsave("./output/fig1.pdf", fig1, width = 10, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Pie chart showing proportions of US billionaires that had inherited vs those that did not inherit their wealth \\label{Fig1}"}
+knitr::include_graphics("./output/fig1.pdf")
+```
+
+The following table also shows how even though the proportion of inherited wealth has decreased relative to non-inherited sources, the number of billionaires who have inherited their wealth has increased.
+
+```{r US inheritance table}
+simple_inheritance_table(US_inherited_prop, caption = "Table showing the US inheritance statistics \\label{tab1}")
+```
+
+This leads us to investigate what entrepreneurial spirit and inherited wealth looks like in countries outside of the United States.  
+We begin again by extracting all the billionaires from outside of the US.
+
+```{r Outside US billionaires}
+outsideUS_billion <- outsideUS_billion_extract()
+```
+Then we obtain the proportion of this group that have inherited their wealth vs those that have not.
+
+```{r Outside US billionaire inherited proportion}
+outsideUS_inherited_prop <- inherited_proportion(outsideUS_billion)
+```
+
+```{r Plot Outside US pie chart}
+fig2 <- plot_pie_inherited(outsideUS_inherited_prop)
+
+ggsave("./output/fig2.pdf", fig2, width = 10, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Pie chart showing proportions of those outside of the US billionaires that had inherited vs those that did not inherit their wealth \\label{Fig2}"}
+knitr::include_graphics("./output/fig2.pdf")
+```
+
+```{r Outside US inheritance table}
+simple_inheritance_table(outsideUS_inherited_prop, caption = "Table showing Outside of the US inheritance statistics \\label{tab2}")
+```
+Figure \ref{Fig2} shows us that while there was a decrease in the proportion of those who obtained their wealth from non-inheritance over 1996-2001, a large increase in this proportion occurred over 2001-2014. Note also how in each period the proportion of those who made their wealth from non-inheritance is greater than half of the population of billionaires outside of the US. This contradicts the statement saying that outside the US houses billionaires who've mostly sourced their wealth from inheritance. 
+
+
+Tables \ref{tab1} and \ref{tab2} show how even though the US has a slightly higher proportion over time of those billionaires who had not inherited their wealth which had increased over the time periods, those from outside of the US also experienced a decrease in proportion of the number of wealthy coming from inheritance.
+```{r Growth calculations}
+growth_US <- growth_in_count(US_inherited_prop)
+
+growth_outsideUS <- growth_in_count(outsideUS_inherited_prop)
+```
+
+A simple calculation shows that the growth rate for those who have inherited wealth in the US is `r round(growth_US$growth_inherited[2], 1)`% for 2001 and `r round(growth_US$growth_inherited[3], 1)`% over 2014, and `r round(growth_US$growth_not_inherited[2], 1)`% and `r round(growth_US$growth_not_inherited[3], 1)`% for those who have not inherited wealth. These same rates for those outside of the US are `r round(growth_outsideUS$growth_inherited[2], 1)`% for 2001 and `r round(growth_outsideUS$growth_inherited[3], 1)`%, and `r round(growth_outsideUS$growth_not_inherited[2], 1)`% and `r round(growth_outsideUS$growth_not_inherited[3], 1)`%. What these figures show is that those from outside of the US have experienced the largest growth rate in the number of new billionaires who have not come from inherited wealth. This contradicts the first statement, showing that there may be a stronger entrepreneurial spirit displayed by those from outside of the US in more recent years, seen with the higher growth rate when compared to that of the US over 2001-2014.
+
+# Sector analysis
+
+This section lays out some of the 
+
+
+@fama1997
 
 
 <!-- Make title of bibliography here: -->
