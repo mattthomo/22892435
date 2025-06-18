@@ -60,7 +60,16 @@ recording types
 
 ## Results
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+<div class="figure" style="text-align: center">
+
+<img src="README_files/figure-gfm/unnamed-chunk-2-1.png" alt="Pie chart showing proportions of US billionaires that had inherited vs those that did not inherit their wealth \label{Fig1}" width="80%" />
+<p class="caption">
+
+Pie chart showing proportions of US billionaires that had inherited vs
+those that did not inherit their wealth
+</p>
+
+</div>
 
 <!-- Make title of bibliography here: -->
 

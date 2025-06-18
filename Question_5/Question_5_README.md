@@ -110,35 +110,40 @@ output:
 
 # Introduction \label{Introduction}
 
-@fama1997
 
 In this question, I aim to provide a few insights into different determinants of good health.
 
 # Sleep vs Exercise as determinants of health
 
 
-
-![](Question_5_README_files/figure-pptx/unnamed-chunk-1-1.png)<!-- -->
-
+![Heatmap showing the relationship between sleep and exercise on stress \label{fig1}](Question_5_README_files/figure-pptx/unnamed-chunk-1-1.png){width=80%}
 
 
+# Sleep and weight change
 
+
+![Boxplot showing the relationship between sleep quality and weight change \label{fig2}](Question_5_README_files/figure-pptx/unnamed-chunk-2-1.png){width=80%}
+
+
+# Exercise and calorie balance
+
+![Bubble plot showing the relationship between activity levels and calorie balance \label{fig3}](Question_5_README_files/figure-pptx/unnamed-chunk-3-1.png){width=80%}
+
+
+# Conclusion
+
+Results:
+
+* Sleep is important when controlling both stress levels and weight
+* Exercise in moderation
 
 <!-- Make title of bibliography here: -->
 <!-- \newpage -->
 
 \newpage
 
-# References {-}
+<!-- # References {-} -->
 
-<div id="refs"></div>
+<!-- <div id="refs"></div> -->
 
-
-# Appendix {-}
-
-## Appendix A {-}
-
-Some appendix information here
-
-## Appendix B {-}
 

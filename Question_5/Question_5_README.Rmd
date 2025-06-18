@@ -132,30 +132,48 @@ list.files('code/', full.names = T, recursive = T) %>%
 
 # Introduction \label{Introduction}
 
-@fama1997
 
 In this question, I aim to provide a few insights into different determinants of good health.
 
 # Sleep vs Exercise as determinants of health
 
 
-```{r}
+```{r, out.width="80%", fig.align="center", fig.cap="Heatmap showing the relationship between sleep and exercise on stress \\label{fig1}"}
 # start with creating a plot which captures the relationship which exercise and sleep have on stress
 
 plot_stress_exercise_sleep(Health)
 ```
 
 
+# Sleep and weight change
 
 
+```{r, out.width="80%", fig.align="center", fig.cap="Boxplot showing the relationship between sleep quality and weight change \\label{fig2}"}
+plot_weight_sleep(Health)
+```
+
+
+# Exercise and calorie balance
+
+```{r, out.width="80%", fig.align="center", fig.cap="Bubble plot showing the relationship between activity levels and calorie balance \\label{fig3}"}
+plot_calorie_exercise(Health)
+```
+
+
+# Conclusion
+
+Results:
+
+* Sleep is important when controlling both stress levels and weight
+* Exercise in moderation
 
 <!-- Make title of bibliography here: -->
 <!-- \newpage -->
 
 \newpage
 
-# References {-}
+<!-- # References {-} -->
 
-<div id="refs"></div>
+<!-- <div id="refs"></div> -->
 
 
