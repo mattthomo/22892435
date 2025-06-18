@@ -3,7 +3,7 @@
 # Remove comments and add values where applicable.
 # The descriptions below should be self-explanatory
 
-title: "Data Science Exam:"
+title: "Question 5: Health"
 #subtitle: "This will appear as Right Header"
 
 documentclass: "elsarticle"
@@ -28,7 +28,7 @@ AddTitle: TRUE # Use FALSE when submitting to peer reviewed platform. This will 
 Author1: "Matthew Thompson"  # First Author - note the thanks message displayed as an italic footnote of first page.
 Ref1: "Department of Economics, Stellenbosch University" # First Author's Affiliation
 Email1: "22892435\\@sun.ac.za" # First Author's Email address
-# 
+
 # Author2: "John Smith"
 # Ref2: "Some other Institution, Cape Town, South Africa"
 # Email2: "John\\@gmail.com"
@@ -40,8 +40,8 @@ Email1: "22892435\\@sun.ac.za" # First Author's Email address
 CorrespAuthor_1: TRUE  # If corresponding author is author 3, e.g., use CorrespAuthor_3: TRUE
 
 # Comment out below to remove both. JEL Codes only given if keywords also given.
-#keywords: "Multivariate GARCH \\sep Kalman Filter \\sep Copula" # Use \\sep to separate
-#JELCodes: "L250 \\sep L100"
+# keywords: "Multivariate GARCH \\sep Kalman Filter \\sep Copula" # Use \\sep to separate
+# JELCodes: "L250 \\sep L100"
 
 # ----- Manage headers and footers:
 #BottomLFooter: $Title$
@@ -86,35 +86,22 @@ link-citations: TRUE            # This creates dynamic links to the papers in re
 #    - \usepackage{colortbl} # Add additional packages here.
 
 output:
-    github_document:
+  powerpoint_presentation:
+    keep_md: true
   # pdf_document:
   #   keep_tex: TRUE
   #   template: Tex/TexDefault.txt
     fig_width: 3.5 # Adjust default figure sizes. This can also be done in the chunks of the text.
     fig_height: 3.5
-# #abstract: |
-#   Abstract to be written here. The abstract should not be too long and should provide the reader with a good understanding what you are writing about. Academic papers are not like novels where you keep the reader in suspense. To be effective in getting others to read your paper, be as open and concise about your findings here as possible. Ideally, upon reading your abstract, the reader should feel he / she must read your paper in entirety.
+#abstract: |
+  #Abstract to be written here. The abstract should not be too long and should provide the reader with a good understanding what you are writing about. Academic papers are not like novels where you keep the reader in suspense. To be effective in getting others to read your paper, be as open and concise about your findings here as possible. Ideally, upon reading your abstract, the reader should feel he / she must read your paper in entirety.
 ---
 
 <!-- First: Set your default preferences for chunk options: -->
 
 <!-- If you want a chunk's code to be printed, set echo = TRUE. message = FALSE stops R printing ugly package loading details in your final paper too. I also suggest setting warning = FALSE and checking for warnings in R, else you might find ugly warnings in your paper. -->
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
-# Note: Include = FALSE implies the code is executed, but not printed in your pdf.
-# warning and message = FALSE implies ugly messages and warnings are removed from your pdf.
-# These should be picked up when you execute the command chunks (code sections below) in your rmd, not printed in your paper!
 
-# Lets load in example data, and see how this can be stored and later called from your 'data' folder.
-if(!require("tidyverse")) install.packages("tidyverse")
-library(tidyverse)
-
-
-# Notice that as you are working in a .Rproj file (I am assuming you are) - the relative paths of your directories start at your specified root.
-# This means that when working in a .Rproj file, you never need to use getwd() - it is assumed as your base root automatically.
-
-```
 
 
 <!-- ############################## -->
@@ -123,30 +110,11 @@ library(tidyverse)
 
 # Introduction \label{Introduction}
 
-This README file sets out the main outputs (with some descriptions) of my answers to the questions. I lay out each question in the same way, starting with pulling the data into this file for the respective questions. Thereafter, I reproduce my plots and tables created for each question with a short description thereof in relation to the question. All functions that are responsible for the data wrangling and plots are saved in the respective code folders in each question, as well as having duplicates saved in the code folder of the root directory (i.e. for the main project).
-
-# Question 1
-
-## Source data and functions
-
-# Question 2
-
-## Source data and functions
+@fama1997
 
 
-# Question 3
-
-## Source data and functions
 
 
-# Question 4
-
-## Source data and functions
-
-
-# Question 5
-
-## Source data and functions
 
 <!-- Make title of bibliography here: -->
 <!-- \newpage -->
