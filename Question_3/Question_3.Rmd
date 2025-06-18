@@ -1,0 +1,163 @@
+---
+title: "Netflix"
+documentclass: elsarticle
+Thesis_FP: false
+output:
+  pdf_document:
+    keep_tex: true
+    template: Tex/TexDefault.txt
+    fig_width: 3.5
+    fig_height: 3.5
+  html_document:
+    df_print: paged
+Author1: Matthew Thompson
+Ref1: Department of Economics, Stellenbosch University
+Email1: 22892435\@sun.ac.za
+BottomRFooter: \footnotesize Page \thepage
+addtoprule: true
+addfootrule: true
+margin: 2.3
+bottom: 2
+top: 2.5
+HardSet_layout: true
+linenumbers: false
+bibliography: Tex/ref.bib
+csl: "Tex/harvard-stellenbosch-university.csl"
+RemovePreprintSubmittedTo: true
+Journal: Journal of Finance
+toc: false
+numbersections: true
+fontsize: 11pt
+linestretch: 1.2
+link-citations: true
+AddTitle: true
+---
+
+<!-- First: Set your default preferences for chunk options: -->
+
+<!-- If you want a chunk's code to be printed, set echo = TRUE. message = FALSE stops R printing ugly package loading details in your final paper too. I also suggest setting warning = FALSE and checking for warnings in R, else you might find ugly warnings in your paper. -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
+
+if(!require("tidyverse")) install.packages("tidyverse")
+library(tidyverse)
+
+list.files('code/', full.names = T, recursive = T) %>%
+    .[grepl('.R', .)] %>% 
+    as.list() %>% 
+    walk(~source(.))
+```
+
+```{r Read data}
+Titles <- read_rds("./data/netflix/titles.rds")
+Credits <- read_rds("./data/netflix/credits.rds")
+Movie_Info <- read_csv("./data/netflix/netflix_movies.csv")
+```
+
+
+<!-- ############################## -->
+<!-- # Start Writing here: -->
+<!-- ############################## -->
+
+# Introduction \label{Introduction}
+
+To tackle this problem, we set about comparing the most popular genres of movie and shows in every country (by frequency). 
+
+
+# Genres and IMDB ratings
+
+First we need to split the genres so that there is one observation of genre per row.
+
+```{r Get genres}
+
+Titles_clean <- one_genre_titles(Titles)
+
+Movie_Info_clean <- one_genre_mov_info(Movie_Info)
+```
+
+Now want to make sure that all genre entries match in both dataframes. Do this by changing entries in the `Titles_clean` dataframe to match those from the `Movie_info_clean` dataframe.
+
+```{r}
+Titles_clean <- clean_titles_genre(Titles_clean)
+```
+
+
+Now want to compare the different genres and their ratings over time.
+
+```{r}
+fig1 <- plot_genre_ratings(Titles_clean)
+
+ggsave("./output/fig1.pdf", fig1, width = 10, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Density ridges of Netflix genres and their IMDB ratings \\label{Fig1}"}
+knitr::include_graphics("./output/fig1.pdf")
+```
+
+Top 3 genres of movies/shows in terms of average ratings according to Figure \ref{Fig1} are:
+
+1. History / War (7.1 rating)
+2. Documentaries (7.0 rating)
+
+# Country Analysis
+
+To start the country analysis, the country column in the `Titles_clean` dataframe had to be cleaned up to be used in analysis.
+
+```{r clean Countries}
+titles_clean_countries <- clean_titles_countries(Titles_clean)
+```
+
+After having achieved this, we can now ask which countries produced the movies with the highest average ratings. We shall average the IMDB ratings across all movies created by a country before plotting the top 10 averages.
+
+```{r}
+top_10 <- top_10_country_producers(titles_clean_countries)
+```
+
+The plot below visualises the top 10 movie producers.
+
+```{r}
+fig2 <- plot_top_10(top_10)
+
+ggsave("./output/fig2.pdf", fig2, width = 12, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Top 10 Movie Producing Countries \\label{Fig2}"}
+knitr::include_graphics("./output/fig2.pdf")
+```
+
+Taking these top 10 countries, we now want to see what the average rating of each is. 
+
+```{r}
+fig3 <- plot_join_averages_top10(top_10)
+
+ggsave("./output/fig3.pdf", fig3, width = 10, height = 6)
+
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Movie quantity vs quality by country for top 10 producers \\label{Fig3}"}
+knitr::include_graphics("./output/fig3.pdf")
+```
+
+Figure \ref{Fig3} tells the story that while the United States has produced the most number of movies, its average rating lies below that of four countries, namely: South Korea, Japan, China, and Great Britain.
+
+@fama1997
+
+<!-- Make title of bibliography here: -->
+<!-- \newpage -->
+
+\newpage
+
+# References {-}
+
+<div id="refs"></div>
+
+
+# Appendix {-}
+
+## Appendix A {-}
+
+Some appendix information here
+
+## Appendix B {-}
+

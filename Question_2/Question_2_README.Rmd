@@ -1,0 +1,179 @@
+---
+title: "Coldplay and Metallica"
+documentclass: elsarticle
+Thesis_FP: false
+output:
+  pdf_document:
+    keep_tex: true
+    template: Tex/TexDefault.txt
+    fig_width: 10
+    fig_height: 6
+  html_document:
+    df_print: paged
+Author1: Matthew Thompson
+Ref1: Department of Economics, Stellenbosch University
+Email1: 22892435\@sun.ac.za
+BottomRFooter: \footnotesize Page \thepage
+addtoprule: true
+addfootrule: true
+margin: 2.3
+bottom: 2
+top: 2.5
+HardSet_layout: true
+linenumbers: false
+bibliography: Tex/ref.bib
+csl: "Tex/harvard-stellenbosch-university.csl"
+RemovePreprintSubmittedTo: true
+toc: false
+numbersections: true
+fontsize: 11pt
+linestretch: 1.2
+link-citations: true
+AddTitle: true
+---
+
+<!-- First: Set your default preferences for chunk options: -->
+
+<!-- If you want a chunk's code to be printed, set echo = TRUE. message = FALSE stops R printing ugly package loading details in your final paper too. I also suggest setting warning = FALSE and checking for warnings in R, else you might find ugly warnings in your paper. -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 6, fig.pos="H", fig.pos = 'H')
+
+
+if(!require("tidyverse")) install.packages("tidyverse")
+library(tidyverse)
+library(brms)
+
+list.files('code/', full.names = T, recursive = T) %>%
+    .[grepl('.R', .)] %>% 
+    as.list() %>% 
+    walk(~source(.))
+```
+
+```{r Read data}
+coldplay <- read_csv("./data/Coldplay_vs_Metallica/Coldplay.csv")
+metallica <- read_csv("./data/Coldplay_vs_Metallica/metallica.csv")
+spotify <- read_rds("./data/Coldplay_vs_Metallica/Broader_Spotify_Info.rds")
+billboard_100 <- read_rds("./data/Coldplay_vs_Metallica/charts.rds")
+
+```
+
+
+<!-- ############################## -->
+<!-- # Start Writing here: -->
+<!-- ############################## -->
+
+# Introduction \label{Introduction}
+
+
+# Clean and remove live songs
+
+First we want to make sure song durations is measured the same for both bands. Need to convert duration column in Metallica's dataset (currently in milliseconds) into seconds.
+
+```{r Convert song duration}
+coldplay <- duration_minutes_coldplay(coldplay)
+metallica <- duration_minutes_metallica(metallica)
+```
+
+Next want to get release dates as years only and make sure column names are the same in both dataframes to make for easier coding later.
+```{r Fix release dates and make columns same}
+coldplay <- release_date_into_years(coldplay)
+metallica <- release_date_into_years(metallica)
+
+coldplay <- same_columns(coldplay)
+```
+
+Now want to filter out all the live songs.
+
+```{r}
+coldplay_unalive <- filter_out_live(coldplay)
+metallica_unalive <- filter_out_live(metallica)
+```
+
+# Song length over time
+
+The analysis starts by simply examining how the length of song released by each band varied over time.
+
+```{r}
+metallica_unalive_stats <- duration_stats(metallica_unalive)
+
+coldplay_unalive_stats <- duration_stats(coldplay_unalive)
+
+```
+
+Below we plot the average song duration for both Metallica and Coldplay over time.
+
+```{r}
+# Create the plot for Metallica
+fig1 <- plot_song_length_metallica()
+
+ggsave("./output/fig1.pdf", fig1, width = 10, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Metallica song durations over time \\label{Fig1}"}
+knitr::include_graphics("./output/fig1.pdf")
+```
+
+Now want to perform the same for Coldplay
+
+```{r}
+fig2 <- plot_song_length_coldplay()
+
+ggsave("./output/fig2.pdf", fig2, width = 10, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Coldplay song durations over time \\label{Fig2}"}
+knitr::include_graphics("./output/fig2.pdf")
+```
+
+The above graphs show the following interesting summary statistics:  
+
+* Metallica had a longer average song duration. 
+* Metallica's longest song is almost double that of Coldplay's. 
+* Metallica also has the shortest length of song between the two bands.
+
+# Danceability comparison (Studio vs Live comparison)
+
+One of the hallmarks of music is being able to dance to a good set. This section compares the difference in the danceability between Coldplay and Metallica throughout each of their albums. It then also compares this only for their live performances, to see if there is a big difference which exists between their studio-recorded, and demo performances etc., and their live shows.
+
+```{r}
+coldplay <- live_or_not(coldplay)
+
+metallica <- live_or_not(metallica)
+
+fig3 <- plot_danceability(coldplay)
+
+ggsave("./output/fig3.pdf", fig3, width = 10, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Coldplay danceability difference between different recording types \\label{Fig3}"}
+knitr::include_graphics("./output/fig3.pdf")
+```
+
+When looking at Coldplay in Figure \ref{Fig3}, we see that their studio and other versions (everything but Live recordings) displays a higher danceability than their live shows, implying that the latter tends to have a more down-beat atmosphere.
+
+```{r}
+fig4 <- plot_danceability(metallica)
+
+ggsave("./output/fig4.pdf", fig4, width = 10, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Metallica danceability difference between different recording types  \\label{Fig4}"}
+knitr::include_graphics("./output/fig4.pdf")
+```
+
+We see that in the case of Metallica, live shows are similarly less suited for dancing than their studio recordings.  
+This contradicts literature which states that live performances often bring out more energy and emotion, seen through better danceability scores [@swarbrick2019].
+
+
+
+<!-- Make title of bibliography here: -->
+<!-- \newpage -->
+
+\newpage
+
+# References {-}
+
+<div id="refs"></div>
+
+
