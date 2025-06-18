@@ -116,9 +116,7 @@ In this question, I aim to provide a few insights into different determinants of
 
 # Sleep vs Exercise as determinants of health
 
-This first section tests the theory whether sleep is a better determinant of good health than exercise is. Here we use the stress level as a proxy for level of well-being, with higher stress indicating worse health.
 
-To do this, we compare through use of a heat map how exercise and sleep jointly affect stress.
 
 ![](Question_5_README_files/figure-pptx/unnamed-chunk-1-1.png)<!-- -->
 
