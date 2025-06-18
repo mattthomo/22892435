@@ -127,6 +127,13 @@ Health <- "./data/Health/HealthCare.csv" %>%
 
 @fama1997
 
+In this question, I aim to provide a few insights into different determinants of good health.
+
+# Sleep vs Exercise as determinants of health
+
+This first section tests the theory whether sleep is a better determinant of good health than exercise is.
+
+
 
 
 

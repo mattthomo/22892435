@@ -129,6 +129,11 @@ This README file sets out the main outputs (with some descriptions) of my answer
 
 ## Source data and functions
 
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Metallica danceability difference between different recording types  \\label{Fig4}"}
+knitr::include_graphics("./Question_2/output/fig4.pdf")
+```
+
 # Question 2
 
 ## Source data and functions

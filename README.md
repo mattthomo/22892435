@@ -27,6 +27,18 @@ main project).
 
 ## Source data and functions
 
+<div class="figure" style="text-align: center">
+
+<embed src="./Question_2/output/fig4.pdf" title="Plot showing Metallica danceability difference between different recording types  \label{Fig4}" width="80%" type="application/pdf" />
+
+<p class="caption">
+
+Plot showing Metallica danceability difference between different
+recording types
+</p>
+
+</div>
+
 # Question 2
 
 ## Source data and functions
