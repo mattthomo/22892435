@@ -156,6 +156,7 @@ When looking at Coldplay in Figure \ref{Fig3}, we see that their studio and othe
 fig4 <- plot_danceability(metallica)
 
 ggsave("./output/fig4.pdf", fig4, width = 10, height = 6)
+ggsave("./output/fig4.png", fig4, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Metallica danceability difference between different recording types  \\label{Fig4}"}

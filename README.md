@@ -27,6 +27,10 @@ main project).
 
 ## Source data and functions
 
+# Question 2
+
+## Source data and functions
+
 <div class="figure" style="text-align: center">
 
 <img src="./Question_2/output/fig4.png" alt="Plot showing Metallica danceability difference between different recording types  \label{Fig4}" width="80%" />
@@ -38,21 +42,25 @@ recording types
 
 </div>
 
-# Question 2
-
-## Source data and functions
-
 # Question 3
 
 ## Source data and functions
+
+## Results
 
 # Question 4
 
 ## Source data and functions
 
+## Results
+
 # Question 5
 
 ## Source data and functions
+
+## Results
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 <!-- Make title of bibliography here: -->
 
