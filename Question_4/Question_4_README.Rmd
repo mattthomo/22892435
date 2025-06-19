@@ -126,7 +126,9 @@ list.files('code/', full.names = T, recursive = T) %>%
 # Introduction \label{Introduction}
 
 
-To tackle this problem, we investigate a few relationships found in the data. The first one we'd like to examine is the claim that the US has more new billionaires who came from entrepreneurial success vs in other developed and emerging economies where there tends to be more inherited wealth.
+To tackle this problem, we investigate a few relationships found in the data. The first one we'd like to examine is the claim that the US has more new billionaires who came from entrepreneurial success vs in other developed and emerging economies where there tends to be more inherited wealth.  
+Thereafter, we perform a sectoral analysis to see if the software sector is indeed the host of most of the new billionaires when compared to other sectors.  
+Analysis finds both claims to be invalid.
 
 
 # Entrepreneurial spirit in US vs Others
@@ -148,8 +150,8 @@ We use a simple pie chart to display the change in proportion of those who inher
 ```{r}
 fig1 <- plot_pie_inherited(US_inherited_prop)
 
-ggsave("./output/fig1.pdf", fig1, width = 10, height = 6)
-ggsave("./Question_4/output/fig1.png", fig1, width = 10, height = 6)
+#ggsave("./output/fig1.pdf", fig1, width = 10, height = 6)
+#ggsave("./Question_4/output/fig1.png", fig1, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Pie chart showing proportions of US billionaires that had inherited vs those that did not inherit their wealth \\label{Fig1}"}
@@ -177,8 +179,8 @@ outsideUS_inherited_prop <- inherited_proportion(outsideUS_billion)
 ```{r Plot Outside US pie chart}
 fig2 <- plot_pie_inherited(outsideUS_inherited_prop)
 
-ggsave("./output/fig2.pdf", fig2, width = 10, height = 6)
-ggsave("./Question_4/output/fig2.png", fig2, width = 10, height = 6)
+#ggsave("./output/fig2.pdf", fig2, width = 10, height = 6)
+#ggsave("./Question_4/output/fig2.png", fig2, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Pie chart showing proportions of those outside of the US billionaires that had inherited vs those that did not inherit their wealth \\label{Fig2}"}
@@ -209,8 +211,8 @@ Here I created a plot showcasing the top 10 billionaire sectors while using numb
 ```{r}
 fig3 <- plot_sectors(billionaires)
 
-ggsave("./output/fig3.pdf", fig3, width = 12, height = 6)
-ggsave("./Question_4/output/fig3.png", fig3, width = 12, height = 6)
+#ggsave("./output/fig3.pdf", fig3, width = 12, height = 6)
+#ggsave("./Question_4/output/fig3.png", fig3, width = 12, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Column plots showing the top 10 billionaire sectors over the 3 periods, using the number of software billionaires as a benchmark in each \\label{Fig3}"}
@@ -230,7 +232,9 @@ Table \ref{tab3} also shows contradictory information to the second statement ma
 
 # Conclusion
 
-Through the various plots and tables provided, I have shown evidence that both claims made are unfounded. 
+Through the various plots and tables provided, I have shown evidence that both claims made are unfounded.  
+Firstly, it is not only in the US that less billionaires are having their wealth sourced through inheritances. Billionaires of non-inheritance from around the world experienced a higher growth rate than that of those from the US in recent years.  
+Secondly, the software sector lags behind other sectors when it comes to creating new billionaires in recent times.
 
 
 

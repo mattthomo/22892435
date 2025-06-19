@@ -109,11 +109,18 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width 
 if(!require("tidyverse")) install.packages("tidyverse")
 library(tidyverse)
 
+list.files('code/', full.names = T, recursive = T) %>%
+    .[grepl('.R', .)] %>% 
+    as.list() %>% 
+    walk(~source(.))
+
+```
+
+```{r read data}
 Baby_Names <- read_rds("./data/US_Baby_names/Baby_Names_By_US_State.rds")
 Top100Billboard <- read_rds("./data/US_Baby_names/charts.rds")
 HBO_titles <- read_rds("./data/US_Baby_names/HBO_titles.rds")
 HBO_credits <- read_rds("./data/US_Baby_names/HBO_credits.rds")
-
 ```
 
 
@@ -123,27 +130,40 @@ HBO_credits <- read_rds("./data/US_Baby_names/HBO_credits.rds")
 
 # Introduction \label{Introduction}
 
-This README file lays out the steps I took in answering this question on determining what are some factors which influence the naming of children, along with the persistence over time of these naming trends. I first show in section \ref{Naming}
-
+This README file lays out the steps I took in answering this question on determining what are some factors which influence the naming of children, along with the persistence over time of these naming trends. 
 
 
 # Naming trends over time \label{Naming}
 
-Here we show first via rank correlation how each year's 25 most popular boys' and girls' names. This looks at the countrywide counts for the names for each year
+Here we show first via rank correlation how each year's 25 most popular boys' and girls' names. Calculate the Spearman Rank correlations for boys and girls separately.
 
-```{r Rank names}
-names <- twenty5_most_pop_names_yearly(Baby_Names)
+```{r Spearman correlations}
+# calculate correlations separately for boys and girls
+boys_cor <- spearman_top_25(Baby_Names, gender ="M")
+girls_cor <- spearman_top_25(Baby_Names, gender = "F")
 ```
 
-Notice how not every name appears in every year. We now fix this by creating a missing value for each name when it doesn't appear in a specific year. This also allows for easier analysis at a later stage.
+Now want to combine these correlations to be able to plot them together.
 
-```{r Complete data}
-complete_data <- complete_ranked_name_data(ranked_total_names)
+```{r Combine correlations}
+plot_df <- combine_genders_for_plot(boys_cor, girls_cor)
 ```
 
-We can now use this data to calculate the Spearman rank correlations
+Now want to plot correlations and add some reference statistics
+
+```{r figure 1}
+fig1 <- plot_spearman(plot_df)
+
+# ggsave("./Question_1/output/fig1.pdf", fig1, width = 10, height = 6)
+# ggsave("./Question_1/output/fig1.png", fig1, width = 10, height = 6)
+```
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Spearman rank correlations for baby names and the persistence of their names over time \\label{Fig1}"}
+knitr::include_graphics("./output/fig1.pdf")
+```
 
 
+Figure \ref{Fig1} shows the path of name persistence over time has experienced many spikes over time. When investigating pre- and post-1990, we find that there is a large trend downwards both for boys and girls.
 
 
 <!-- Make title of bibliography here: -->

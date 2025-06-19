@@ -199,7 +199,7 @@
 
 \begin{frontmatter}  %
 
-\title{Coldplay and Metallica}
+\title{Baby names analysis}
 
 % Set to FALSE if wanting to remove title (for submission)
 
@@ -255,31 +255,20 @@
 \section{\texorpdfstring{Introduction
 \label{Introduction}}{Introduction }}\label{introduction}
 
-In this question I ventured to come up with an analysis on the trends
-over time of the well-known bands Coldplay and Metallica. A comparative
-analysis of advanced scatter plots was used to compare their albums over
-time around themes such as song duration (excluding live recordings),
-and danceability (how suited a song is for dancing) of songs recorded
-during live and non-live (studio, demo, remastered etc.) performances.
+This README file lays out the steps I took in answering this question on
+determining what are some factors which influence the naming of
+children, along with the persistence over time of these naming trends.
 
-\section{Clean and remove live songs}\label{clean-and-remove-live-songs}
+\section{\texorpdfstring{Naming trends over time
+\label{Naming}}{Naming trends over time }}\label{naming-trends-over-time}
 
-First we want to make sure song durations is measured the same for both
-bands. Need to convert duration column in Metallica's dataset (currently
-in milliseconds) into seconds.
+Here we show first via rank correlation how each year's 25 most popular
+boys' and girls' names. Calculate the Spearman Rank correlations for
+boys and girls separately.
 
-Next want to get release dates as years only and make sure column names
-are the same in both dataframes to make for easier coding later.
+Now want to combine these correlations to be able to plot them together.
 
-Now want to filter out all the live songs.
-
-\section{Song length over time}\label{song-length-over-time}
-
-The analysis starts by simply examining how the length of song released
-by each band varied over time.
-
-Below we plot the average song duration for both Metallica and Coldplay
-over time.
+Now want to plot correlations and add some reference statistics
 
 \begin{figure}[H]
 
@@ -287,99 +276,13 @@ over time.
 
 }
 
-\caption{Plot showing Metallica song durations over time \label{Fig1}}\label{fig:unnamed-chunk-4}
+\caption{Plot showing Spearman rank correlations for baby names and the persistence of their names over time \label{Fig1}}\label{fig:unnamed-chunk-1}
 \end{figure}
 
-Now want to perform the same for Coldplay
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.8\linewidth]{./output/fig2} 
-
-}
-
-\caption{Plot showing Coldplay song durations over time \label{Fig2}}\label{fig:unnamed-chunk-6}
-\end{figure}
-
-The above graphs show the following interesting summary statistics:
-
-\begin{itemize}
-\tightlist
-\item
-  Metallica had a longer average song duration.
-\item
-  Metallica's longest song is almost double that of Coldplay's.
-\item
-  Metallica also has the shortest length of song between the two bands.
-\end{itemize}
-
-\section{Danceability comparison (Studio vs Live
-comparison)}\label{danceability-comparison-studio-vs-live-comparison}
-
-One of the hallmarks of music is being able to dance to a good set. This
-section compares the difference in the danceability between Coldplay and
-Metallica throughout each of their albums. It then also compares this
-only for their live performances, to see if there is a big difference
-which exists between their studio-recorded, and demo performances etc.,
-and their live shows.
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.8\linewidth]{./output/fig3} 
-
-}
-
-\caption{Plot showing Coldplay danceability difference between different recording types \label{Fig3}}\label{fig:unnamed-chunk-8}
-\end{figure}
-
-When looking at Coldplay in Figure \ref{Fig3}, we see that their studio
-and other versions (everything but Live recordings) displays a higher
-danceability than their live shows, implying that the latter tends to
-have a more down-beat atmosphere.
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.8\linewidth]{./output/fig4} 
-
-}
-
-\caption{Plot showing Metallica danceability difference between different recording types  \label{Fig4}}\label{fig:unnamed-chunk-10}
-\end{figure}
-
-We see that in the case of Metallica, live shows are similarly less
-suited for dancing than their studio recordings.\\
-This contradicts literature which states that live performances often
-bring out more energy and emotion, seen through better danceability
-scores (\citeproc{ref-swarbrick2019}{Swarbrick, Bosnyak, Livingstone,
-Bansal, Marsh-Rollo, Woolhouse \& Trainor, 2019}).\\
-Furthermore, Coldplay boasted a higher average danceability than
-Metallica. This probably speaks to the more pop-focused sounds eminating
-from their music when compared to the latter.
-
-\section{Conclusion}\label{conclusion}
-
-The above analysis highlighted a few findings in the comparison between
-Metallica and Coldplay.\\
-Firstly, Metallica produce longer songs than Coldplay.\\
-Secondly, for both bands live sound performed worse in the danceability
-metric than non-live sounds.\\
-Lastly, on average Coldplay produces music which is better suited to
-dancing than Metallica.
-
-\newpage
-
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
-
-\phantomsection\label{refs}
-\begin{CSLReferences}{1}{1}
-\bibitem[\citeproctext]{ref-swarbrick2019}
-Swarbrick, D., Bosnyak, D., Livingstone, S.R., Bansal, J., Marsh-Rollo,
-S., Woolhouse, M.H. \& Trainor, L.J. 2019. How live music moves us: Head
-movement differences in audiences to live versus recorded music.
-\emph{Frontiers in psychology}. 9:2682.
-
-\end{CSLReferences}
+Figure \ref{Fig1} shows the path of name persistence over time has
+experienced many spikes over time. When investigating pre- and
+post-1990, we find that there is a large trend downwards both for boys
+and girls.
 
 \bibliography{Tex/ref}
 

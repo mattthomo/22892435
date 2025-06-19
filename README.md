@@ -49,10 +49,28 @@ HBO_credits <- read_rds("./data/US_Baby_names/HBO_credits.rds")
 ## Short description of method
 
 In Question 1 I aimed to answer the question of how baby names persisted
-over time, amongst other things. The following plots created help to
-explain my thought process in answering such a question.
+over time, amongst other things. The following plot helped me to explain
+the Spearman rank correlation in the relationship. Unfortunately, due to
+time constraints I only managed to produce this plot for this question.
 
-## Plot 1
+## Plot 1: Spearman rank correlations
+
+This plot visualises the Spearman Rank Correlations and their trends
+over time. This shows that for both boys and girls, the top 25 baby
+names each year experienced many shifts in persistence over time.
+Looking at the post-1990s, we also see a large drop in persistence
+around the year 2000.
+
+<div class="figure" style="text-align: center">
+
+<img src="./Question_1/output/fig1.png" alt="Plot showing Spearman rank correlations for baby names and the persistence of their names over time \label{Fig1}" width="80%" />
+<p class="caption">
+
+Plot showing Spearman rank correlations for baby names and the
+persistence of their names over time
+</p>
+
+</div>
 
 # Question 2: Coldplay vs Metallica
 
@@ -308,7 +326,7 @@ rate of those billionaires from outside of the US who had made their
 wealth from sources other than inheritance was much higher in recent
 years than that of the US billionaires in the same scenario.
 
-# Plot 3: Sector analysis
+## Plot 3: Sector analysis
 
 This plot provided a sectoral analysis which aimed to address the second
 claim made in the question.
@@ -328,7 +346,7 @@ Looking at this column plot we can see that the software sector lags
 behind other sectors in recent times in terms of the number of
 billionaires in this industry.
 
-# Table 3: Sector analysis and GDP
+## Table 3: Sector analysis and GDP
 
 The below table also strengthened the argument that there was not a
 strong claim to be made that software billionaires make up a large
@@ -343,7 +361,7 @@ portion of the new billionaires.
 Table showing results of regression of log of GDP on the probability of
 being in the software sector
 
-# Question 5
+# Question 5: Health
 
 ## Source data and functions
 
@@ -354,7 +372,7 @@ relationship which variables such as sleep and exercise had on measures
 of health, such as stress levels and weight changes. Through various
 plots I was able to come up with the following analyses.
 
-# Plot 1: Sleep vs exercise as a determinant of stress
+## Plot 1: Sleep vs exercise as a determinant of stress
 
 This heatmap showed that sleep is arguably more important than exercise
 when it comes to stress levels. When sleep is poor, regardless of
@@ -363,7 +381,7 @@ to be said for when activity levels are low.
 
 <div class="figure" style="text-align: center">
 
-<img src="README_files/figure-gfm/unnamed-chunk-12-1.png" alt="Heatmap showing the relationship between sleep and exercise on stress" width="80%" />
+<img src="README_files/figure-gfm/unnamed-chunk-13-1.png" alt="Heatmap showing the relationship between sleep and exercise on stress" width="80%" />
 <p class="caption">
 
 Heatmap showing the relationship between sleep and exercise on stress
@@ -371,7 +389,7 @@ Heatmap showing the relationship between sleep and exercise on stress
 
 </div>
 
-# Plot 2: Sleep and weight fluctuations
+## Plot 2: Sleep and weight fluctuations
 
 This boxplot set out the changes in weight against changes in sleep
 quality. It shows once again that sleep is very important in helping to
@@ -379,7 +397,7 @@ stabilise weight fluctuations.
 
 <div class="figure" style="text-align: center">
 
-<img src="README_files/figure-gfm/unnamed-chunk-13-1.png" alt="Boxplot showing the relationship between sleep quality and weight change \label{fig2}" width="80%" />
+<img src="README_files/figure-gfm/unnamed-chunk-14-1.png" alt="Boxplot showing the relationship between sleep quality and weight change \label{fig2}" width="80%" />
 <p class="caption">
 
 Boxplot showing the relationship between sleep quality and weight change
@@ -387,7 +405,7 @@ Boxplot showing the relationship between sleep quality and weight change
 
 </div>
 
-# Plot 3: Exercise and calorie balance
+## Plot 3: Exercise and calorie balance
 
 When looking at activity levels and their potential relationship with
 the calorie balance (i.e. was the calories consumed for the day above or
@@ -399,7 +417,7 @@ fuel for the body.
 
 <div class="figure" style="text-align: center">
 
-<img src="README_files/figure-gfm/unnamed-chunk-14-1.png" alt="Bubble plot showing the relationship between activity levels and calorie balance \label{fig3}" width="80%" />
+<img src="README_files/figure-gfm/unnamed-chunk-15-1.png" alt="Bubble plot showing the relationship between activity levels and calorie balance \label{fig3}" width="80%" />
 <p class="caption">
 
 Bubble plot showing the relationship between activity levels and calorie

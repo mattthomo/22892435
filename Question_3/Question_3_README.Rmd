@@ -62,7 +62,7 @@ Movie_Info <- read_csv("./data/netflix/netflix_movies.csv")
 
 # Introduction \label{Introduction}
 
-To tackle this problem, we set about comparing the most popular genres of movie and shows in every country (by frequency). 
+To tackle this problem, we set about comparing the most popular genres of movie and shows in every country (by frequency). We then look at which movie producing countries create the most movies, and which of them produce the best quality movies according to ratings.
 
 
 # Genres and IMDB ratings
@@ -88,8 +88,8 @@ Now want to compare the different genres and their ratings over time.
 ```{r}
 fig1 <- plot_genre_ratings(Titles_clean)
 
-ggsave("./output/fig1.pdf", fig1, width = 10, height = 6)
-ggsave("./Question_3/output/fig1.png", fig1, width = 10, height = 6)
+#ggsave("./output/fig1.pdf", fig1, width = 10, height = 6)
+#ggsave("./Question_3/output/fig1.png", fig1, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Density ridges of Netflix genres and their IMDB ratings \\label{Fig1}"}
@@ -120,8 +120,8 @@ The plot below visualises the top 10 movie producers.
 ```{r}
 fig2 <- plot_top_10(top_10)
 
-ggsave("./output/fig2.pdf", fig2, width = 12, height = 6)
-ggsave("./Question_3/output/fig2.png", fig2, width = 12, height = 6)
+#ggsave("./output/fig2.pdf", fig2, width = 12, height = 6)
+#ggsave("./Question_3/output/fig2.png", fig2, width = 12, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Top 10 Movie Producing Countries \\label{Fig2}"}
@@ -133,17 +133,19 @@ Taking these top 10 countries, we now want to see what the average rating of eac
 ```{r}
 fig3 <- plot_join_averages_top10(top_10)
 
-ggsave("./output/fig3.pdf", fig3, width = 10, height = 6)
-ggsave("./Question_3/output/fig3.png", fig3, width = 10, height = 6)
+#ggsave("./output/fig3.pdf", fig3, width = 10, height = 6)
+#ggsave("./Question_3/output/fig3.png", fig3, width = 10, height = 6)
 ```
 
 ```{r, out.width="80%", fig.align="center", fig.cap="Movie quantity vs quality by country for top 10 producers \\label{Fig3}"}
 knitr::include_graphics("./output/fig3.pdf")
 ```
 
-Figure \ref{Fig3} tells the story that while the United States has produced the most number of movies, its average rating lies below that of four countries, namely: South Korea, Japan, China, and Great Britain.
+Figure \ref{Fig3} tells the story that while the United States has produced the most number of movies, its average rating lies below that of four countries, namely: South Korea, Japan, China, and Great Britain. South Korea produces the highest quality movie on average according to IMDB ratings.
 
 # Conclusion
+
+The analysis has shown that History and War films, followed by documentaries are the most-loved across the world. Furthermore, while the United States produces the most movies/shows, it is South Korea that produces the subjective best of them.
 
 
 <!-- Make title of bibliography here: -->
@@ -151,7 +153,7 @@ Figure \ref{Fig3} tells the story that while the United States has produced the 
 
 \newpage
 
-# References {-}
+
 
 <!-- <div id="refs"></div> -->
 

@@ -199,7 +199,7 @@
 
 \begin{frontmatter}  %
 
-\title{Coldplay and Metallica}
+\title{Netflix}
 
 % Set to FALSE if wanting to remove title (for submission)
 
@@ -255,31 +255,21 @@
 \section{\texorpdfstring{Introduction
 \label{Introduction}}{Introduction }}\label{introduction}
 
-In this question I ventured to come up with an analysis on the trends
-over time of the well-known bands Coldplay and Metallica. A comparative
-analysis of advanced scatter plots was used to compare their albums over
-time around themes such as song duration (excluding live recordings),
-and danceability (how suited a song is for dancing) of songs recorded
-during live and non-live (studio, demo, remastered etc.) performances.
+To tackle this problem, we set about comparing the most popular genres
+of movie and shows in every country (by frequency). We then look at
+which movie producing countries create the most movies, and which of
+them produce the best quality movies according to ratings.
 
-\section{Clean and remove live songs}\label{clean-and-remove-live-songs}
+\section{Genres and IMDB ratings}\label{genres-and-imdb-ratings}
 
-First we want to make sure song durations is measured the same for both
-bands. Need to convert duration column in Metallica's dataset (currently
-in milliseconds) into seconds.
+First we need to split the genres so that there is one observation of
+genre per row.
 
-Next want to get release dates as years only and make sure column names
-are the same in both dataframes to make for easier coding later.
+Now want to make sure that all genre entries match in both dataframes.
+Do this by changing entries in the \texttt{Titles\_clean} dataframe to
+match those from the \texttt{Movie\_info\_clean} dataframe.
 
-Now want to filter out all the live songs.
-
-\section{Song length over time}\label{song-length-over-time}
-
-The analysis starts by simply examining how the length of song released
-by each band varied over time.
-
-Below we plot the average song duration for both Metallica and Coldplay
-over time.
+Now want to compare the different genres and their ratings over time.
 
 \begin{figure}[H]
 
@@ -287,10 +277,33 @@ over time.
 
 }
 
-\caption{Plot showing Metallica song durations over time \label{Fig1}}\label{fig:unnamed-chunk-4}
+\caption{Density ridges of Netflix genres and their IMDB ratings \label{Fig1}}\label{fig:unnamed-chunk-3}
 \end{figure}
 
-Now want to perform the same for Coldplay
+Top 3 genres of movies/shows in terms of average ratings according to
+Figure \ref{Fig1} are:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  History / War (7.1 rating)
+\item
+  Documentaries (7.0 rating)
+\end{enumerate}
+
+\section{Country Analysis}\label{country-analysis}
+
+To start the country analysis, the country column in the
+\texttt{Titles\_clean} dataframe had to be cleaned up to be used in
+analysis.
+
+After having achieved this, we can now ask which countries produced the
+movies with the highest average ratings. We shall average the IMDB
+ratings across all movies created by a country before plotting the top
+10 averages.
+
+The plot below visualises the top 10 movie producers.
 
 \begin{figure}[H]
 
@@ -298,30 +311,11 @@ Now want to perform the same for Coldplay
 
 }
 
-\caption{Plot showing Coldplay song durations over time \label{Fig2}}\label{fig:unnamed-chunk-6}
+\caption{Top 10 Movie Producing Countries \label{Fig2}}\label{fig:unnamed-chunk-6}
 \end{figure}
 
-The above graphs show the following interesting summary statistics:
-
-\begin{itemize}
-\tightlist
-\item
-  Metallica had a longer average song duration.
-\item
-  Metallica's longest song is almost double that of Coldplay's.
-\item
-  Metallica also has the shortest length of song between the two bands.
-\end{itemize}
-
-\section{Danceability comparison (Studio vs Live
-comparison)}\label{danceability-comparison-studio-vs-live-comparison}
-
-One of the hallmarks of music is being able to dance to a good set. This
-section compares the difference in the danceability between Coldplay and
-Metallica throughout each of their albums. It then also compares this
-only for their live performances, to see if there is a big difference
-which exists between their studio-recorded, and demo performances etc.,
-and their live shows.
+Taking these top 10 countries, we now want to see what the average
+rating of each is.
 
 \begin{figure}[H]
 
@@ -329,57 +323,23 @@ and their live shows.
 
 }
 
-\caption{Plot showing Coldplay danceability difference between different recording types \label{Fig3}}\label{fig:unnamed-chunk-8}
+\caption{Movie quantity vs quality by country for top 10 producers \label{Fig3}}\label{fig:unnamed-chunk-8}
 \end{figure}
 
-When looking at Coldplay in Figure \ref{Fig3}, we see that their studio
-and other versions (everything but Live recordings) displays a higher
-danceability than their live shows, implying that the latter tends to
-have a more down-beat atmosphere.
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.8\linewidth]{./output/fig4} 
-
-}
-
-\caption{Plot showing Metallica danceability difference between different recording types  \label{Fig4}}\label{fig:unnamed-chunk-10}
-\end{figure}
-
-We see that in the case of Metallica, live shows are similarly less
-suited for dancing than their studio recordings.\\
-This contradicts literature which states that live performances often
-bring out more energy and emotion, seen through better danceability
-scores (\citeproc{ref-swarbrick2019}{Swarbrick, Bosnyak, Livingstone,
-Bansal, Marsh-Rollo, Woolhouse \& Trainor, 2019}).\\
-Furthermore, Coldplay boasted a higher average danceability than
-Metallica. This probably speaks to the more pop-focused sounds eminating
-from their music when compared to the latter.
+Figure \ref{Fig3} tells the story that while the United States has
+produced the most number of movies, its average rating lies below that
+of four countries, namely: South Korea, Japan, China, and Great Britain.
+South Korea produces the highest quality movie on average according to
+IMDB ratings.
 
 \section{Conclusion}\label{conclusion}
 
-The above analysis highlighted a few findings in the comparison between
-Metallica and Coldplay.\\
-Firstly, Metallica produce longer songs than Coldplay.\\
-Secondly, for both bands live sound performed worse in the danceability
-metric than non-live sounds.\\
-Lastly, on average Coldplay produces music which is better suited to
-dancing than Metallica.
+The analysis has shown that History and War films, followed by
+documentaries are the most-loved across the world. Furthermore, while
+the United States produces the most movies/shows, it is South Korea that
+produces the subjective best of them.
 
 \newpage
-
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
-
-\phantomsection\label{refs}
-\begin{CSLReferences}{1}{1}
-\bibitem[\citeproctext]{ref-swarbrick2019}
-Swarbrick, D., Bosnyak, D., Livingstone, S.R., Bansal, J., Marsh-Rollo,
-S., Woolhouse, M.H. \& Trainor, L.J. 2019. How live music moves us: Head
-movement differences in audiences to live versus recorded music.
-\emph{Frontiers in psychology}. 9:2682.
-
-\end{CSLReferences}
 
 \bibliography{Tex/ref}
 

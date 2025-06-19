@@ -141,10 +141,15 @@ HBO_credits <- read_rds("./data/US_Baby_names/HBO_credits.rds")
 
 ## Short description of method
 
-In Question 1 I aimed to answer the question of how baby names persisted over time, amongst other things. The following plots created help to explain my thought process in answering such a question.
+In Question 1 I aimed to answer the question of how baby names persisted over time, amongst other things. The following plot helped me to explain the Spearman rank correlation in the relationship. Unfortunately, due to time constraints I only managed to produce this plot for this question.
 
-## Plot 1
+## Plot 1: Spearman rank correlations
 
+This plot visualises the Spearman Rank Correlations and their trends over time. This shows that for both boys and girls, the top 25 baby names each year experienced many shifts in persistence over time. Looking at the post-1990s, we also see a large drop in persistence around the year 2000.
+
+```{r, out.width="80%", fig.align="center", fig.cap="Plot showing Spearman rank correlations for baby names and the persistence of their names over time \\label{Fig1}"}
+knitr::include_graphics("./Question_1/output/fig1.png")
+```
 
 # Question 2: Coldplay vs Metallica
 
@@ -302,7 +307,7 @@ simple_inheritance_table(outsideUS_inherited_prop, caption = "Table showing Outs
 
 All these plots and figures illustrated that the first claim made was found to be invalid. Inline calculations also showed that the growth rate of those billionaires from outside of the US who had made their wealth from sources other than inheritance was much higher in recent years than that of the US billionaires in the same scenario.
 
-# Plot 3: Sector analysis
+## Plot 3: Sector analysis
 
 This plot provided a sectoral analysis which aimed to address the second claim made in the question.
 
@@ -312,7 +317,7 @@ knitr::include_graphics("./Question_4/output/fig3.png")
 
 Looking at this column plot we can see that the software sector lags behind other sectors in recent times in terms of the number of billionaires in this industry.
 
-# Table 3: Sector analysis and GDP
+## Table 3: Sector analysis and GDP
 
 The below table also strengthened the argument that there was not a strong claim to be made that software billionaires make up a large portion of the new billionaires.
 
@@ -321,7 +326,7 @@ linear_reg_software_gdp(billionaires, caption = "Table showing results of regres
 ```
 
 
-# Question 5
+# Question 5: Health
 
 ## Source data and functions
 
@@ -335,7 +340,7 @@ Health <- "./data/Health/HealthCare.csv" %>%
 
 In this question I attempted to provide insights into the important relationship which variables such as sleep and exercise had on measures of health, such as stress levels and weight changes. Through various plots I was able to come up with the following analyses.
 
-# Plot 1: Sleep vs exercise as a determinant of stress
+## Plot 1: Sleep vs exercise as a determinant of stress
 
 This heatmap showed that sleep is arguably more important than exercise when it comes to stress levels. When sleep is poor, regardless of exercise level, then stress is generally higher. The same was not able to be said for when activity levels are low.
 
@@ -343,7 +348,7 @@ This heatmap showed that sleep is arguably more important than exercise when it 
 plot_stress_exercise_sleep(Health)
 ```
 
-# Plot 2: Sleep and weight fluctuations
+## Plot 2: Sleep and weight fluctuations
 
 This boxplot set out the changes in weight against changes in sleep quality. It shows once again that sleep is very important in helping to stabilise weight fluctuations.
 
@@ -351,7 +356,7 @@ This boxplot set out the changes in weight against changes in sleep quality. It 
 plot_weight_sleep(Health)
 ```
 
-# Plot 3: Exercise and calorie balance
+## Plot 3: Exercise and calorie balance
 
 When looking at activity levels and their potential relationship with the calorie balance (i.e. was the calories consumed for the day above or below the recommended amount), we see that increased activity can lead to an increase in the surplus of calories consumed. This shows that while exercise is good, diet is also important and should be considered carefully when maintaining a very active lifestyle as it requires more fuel for the body.
 
