@@ -365,6 +365,12 @@ being in the software sector
 
 ## Source data and functions
 
+``` r
+# read in data
+Health <- "./data/Health/HealthCare.csv" %>% 
+    read_csv()
+```
+
 ## Short description of method
 
 In this question I attempted to provide insights into the important

@@ -330,7 +330,7 @@ linear_reg_software_gdp(billionaires, caption = "Table showing results of regres
 
 ## Source data and functions
 
-```{r Q5 data and functions}
+```{r Q5 data and functions, echo=TRUE}
 # read in data
 Health <- "./data/Health/HealthCare.csv" %>% 
     read_csv()
