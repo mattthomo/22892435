@@ -13,6 +13,7 @@ spearman_top_25 <- function(df, gender) {
         ungroup()
 
     # Create all year pairs we want to compare
+    # use expand_grid to properly keep all year pairs together, need it for calculating correlation and persistence over time
     year_pairs <- expand_grid(year1 = unique(top_names$Year),
                               year2 = unique(top_names$Year)) %>%
         filter(year2 > year1, year2 <= year1 + 3) %>%  # Compare with next 3 years

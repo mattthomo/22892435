@@ -432,6 +432,12 @@ balance
 
 </div>
 
+# Conclusion
+
+This concludes my data science exam. From stories about Coldplay and
+Metallica, to sleep quality and exercise, I hope the stories told were
+interesting to you as they were to me!
+
 <!-- Make title of bibliography here: -->
 
 <!-- \newpage -->
